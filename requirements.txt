@@ -1,0 +1,10 @@
+dacite==1.6
+PyYAML==6.0
+aiopg
+psycopg2-binary
+peewee
+peewee-async
+peewee-migrate2
+oitnb
+click
+pytest-asyncio
