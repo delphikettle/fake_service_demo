@@ -32,5 +32,8 @@ class BaseModel(Model):
             models = models | model.all_models()
         return models
 
+    def dict(self) -> dict:
+        return {field.name: getattr(self, field.name) for field in self._meta.sorted_fields}
+
     class Meta:
         database = db

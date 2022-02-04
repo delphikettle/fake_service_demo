@@ -10,7 +10,7 @@ router = Router(db, dirname(__file__))
 
 
 @click.group()
-@click.option('--conf', '-c', default='./src/conf.yaml')
+@click.option('--conf', '-c', default='conf.yaml')
 def cli(conf):
     MigrationsConfig.load_from_file(conf)
 
@@ -29,12 +29,11 @@ def apply_migrations():
         router.run(fake=False)
 
 
-@cli.command('check')
 def check_migrations():
     with db.allow_sync():
         if router.diff:
             raise RuntimeError(
-                f'Not all migrations are applied: {router.diff}'
+                f'Not all migrations are applied: {router.diff}\n'
                 'Please apply them using `./src/app/migraions/cli.py` script'
             )
 

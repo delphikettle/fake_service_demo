@@ -6,7 +6,7 @@ from utils.config import ConfigBase
 
 @dataclass
 class MigrationsConfig(ConfigBase):
-    app: AppConfig = field(default=AppConfig)
+    app: AppConfig = field(default_factory=AppConfig)
 
     @classmethod
     def _set_current(cls, conf: 'ConfigBase'):

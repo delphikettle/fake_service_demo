@@ -1,5 +1,5 @@
-dacite==1.6
-PyYAML==6.0
+dacite
+PyYAML
 aiopg
 psycopg2-binary
 peewee
@@ -8,3 +8,8 @@ peewee-migrate2
 oitnb
 click
 pytest-asyncio
+fastapi
+uvicorn
+httpx
+arq
+testing.redis
