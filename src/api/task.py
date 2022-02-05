@@ -6,7 +6,7 @@ from pydantic import BaseModel
 
 from app.models.base import manager
 from app.models.task import Task, TaskStatus
-from app.redis import arq_redis
+from app.redis import enqueue_task
 
 tasks_router = APIRouter()
 
@@ -28,7 +28,7 @@ async def create_task(new_task: NewTaskModel):
     task = await manager.create(
         Task, name=new_task.name, processing_time=new_task.processing_time
     )
-    await arq_redis.enqueue_job('handle_task', task.id)
+    await enqueue_task(task)
     return task.dict()
 
 

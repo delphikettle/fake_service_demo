@@ -12,7 +12,7 @@ class APIBaseTestCase(BaseTestCase):
         super().setUp()
         self.app = create_app()
         self.aclient = AsyncClient(app=self.app, base_url='http://test', follow_redirects=True)
-        self._enqueue_mock = patch('app.redis.arq_redis.obj.enqueue_job')
+        self._enqueue_mock = patch('api.task.enqueue_task')
         self.enqueue_mock = self._enqueue_mock.start()
 
     def tearDown(self):

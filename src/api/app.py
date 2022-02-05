@@ -3,6 +3,7 @@ from uvicorn import Server
 from uvicorn.config import Config
 
 from api import config
+from api.exceptions import add_exception_handlers
 from api.task import tasks_router
 from app.migrations.cli import check_migrations
 
@@ -10,6 +11,7 @@ from app.migrations.cli import check_migrations
 def create_app():
     app = FastAPI()
     app.include_router(tasks_router, prefix='/tasks', tags=['tasks'])
+    add_exception_handlers(app)
     return app
 
 

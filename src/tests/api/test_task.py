@@ -10,10 +10,7 @@ class APITaskTestCase(APIBaseTestCase):
         new_task = {'name': 'test_name', 'processing_time': 10}
         resp = await self.aclient.post('/tasks', json=new_task)
         self.enqueue_mock.assert_called()
-        assert self.enqueue_mock.call_args_list[0].args == (
-            'handle_task',
-            UUID(resp.json()['task_id']),
-        )
+        assert self.enqueue_mock.call_args_list[0].args[0].id == UUID(resp.json()['task_id'])
         self.assert_dict_sourced(new_task, resp.json())
 
         resp = await self.aclient.get(f'/tasks/{resp.json()["task_id"]}')
