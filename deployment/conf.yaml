@@ -1,0 +1,8 @@
+app:
+  db:
+    port: 5432
+    user: postgres
+    password: somepass
+    host: db
+  redis:
+    host: redis

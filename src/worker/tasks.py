@@ -11,9 +11,9 @@ logger = getLogger(__name__)
 
 
 async def _process_task(task: Task):
-    if task.processing_time == config.fail_time:
-        raise ValueError(f'Wrong processing time: {task.processing_time}')
     await sleep(task.processing_time)
+    if task.processing_time == config.fail_time:
+        raise ValueError(f'Failed with processing time: {task.processing_time}')
 
 
 async def handle_task(ctx, task_id: Union[str, UUID]):

@@ -25,7 +25,8 @@ class WorkerTaskTestCase(WorkerBaseTestCase):
         await enqueue_task(task)
         with patch('worker.tasks.sleep') as sleep_mock:
             await self.burst_worker()
-            assert sleep_mock.call_count == 0
+            assert sleep_mock.call_count == 1
+            assert sleep_mock.call_args_list[0].args[0] == proc_time
 
         task = await manager.get(Task, id=task.id)
         assert task.status == TaskStatus.ERROR

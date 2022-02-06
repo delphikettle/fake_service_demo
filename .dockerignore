@@ -1,0 +1,11 @@
+# Unit test / coverage reports
+.pytest_cache/
+
+
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
+# User-specific stuff
+.idea/**
+
+## App
+# configs
+*.yaml

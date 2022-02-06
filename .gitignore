@@ -205,3 +205,6 @@ fabric.properties
 # configs
 *.yaml
 
+# Deployment
+!/docker-compose.yaml
+!/deployment/conf.yaml
