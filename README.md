@@ -20,11 +20,11 @@ For running services you need to complete migrations, you can do that by:
 Execute `python3 -m run api`
 
 ### Run worker server
-Execute `python3 -m run worker`/
-Open http://0.0.0.0:4321/docs#/ in browser (Or whatever port and host you set in your con.yaml file)
+Execute `python3 -m run worker`.
+Open http://0.0.0.0:4321/docs#/ in browser (Or whatever port and host you set in your con.yaml file) to see Swagger UI
 
 # Run services using docker-compose
-Run `docker-compose up` from root directory of the project. 
+Run `docker-compose up` from root directory of the project. Open http://0.0.0.0:4322/docs#/ in your browser to view Swagger UI.
 
 
 # Task 1
