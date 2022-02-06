@@ -6,3 +6,5 @@ app:
     host: db
   redis:
     host: redis
+api:
+  port: 4322
